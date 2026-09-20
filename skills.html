@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills — Siddhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #FBF3E7; --ink: #2B2118; --ink-soft: #6B5B4B;
+    --rust: #B24A26; --gold: #C7902E; --line: #E3D2B8; --card: #FFFDF9;
+  }
+  *{ box-sizing: border-box; }
+  html, body{ margin:0; padding:0; background: var(--paper); color: var(--ink);
+    font-family: 'Work Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  body{
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(199,144,46,0.10), transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(178,74,38,0.08), transparent 45%);
+  }
+  .wrap{ max-width: 760px; margin: 0 auto; padding: 72px 24px 90px; }
+
+  nav.crumb{ display:flex; align-items:center; justify-content:center; gap: 10px;
+    font-size: 14px; color: var(--ink-soft); margin-bottom: 44px; }
+  nav.crumb a{ color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
+  nav.crumb a:hover{ color: var(--rust); border-color: var(--rust); }
+  nav.crumb span.dot{ width: 4px; height: 4px; border-radius: 50%; background: var(--rust); display:inline-block; }
+
+  header{ text-align:center; margin-bottom: 48px;
+    opacity: 0; transform: translateY(10px); animation: rise 0.7s ease forwards; }
+  h1{ font-family: 'Fraunces', serif; font-weight: 500; font-size: 38px; margin: 0 0 10px; }
+  header p{ font-size: 16px; color: var(--ink-soft); }
+
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 52px;
+  }
+
+  .skill-card{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+    cursor: default;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    opacity: 0; transform: translateY(12px); animation: rise 0.7s ease forwards;
+  }
+  .skill-card:nth-child(1){ animation-delay: 0.05s; }
+  .skill-card:nth-child(2){ animation-delay: 0.12s; }
+  .skill-card:nth-child(3){ animation-delay: 0.19s; }
+
+  .skill-card:hover{
+    transform: translateY(-3px);
+    border-color: var(--rust);
+    box-shadow: 0 10px 22px rgba(178,74,38,0.14);
+  }
+
+  .skill-mark{
+    width: 38px; height: 38px; margin: 0 auto 14px;
+    border-radius: 50%;
+    background: linear-gradient(155deg, var(--rust), var(--gold));
+  }
+
+  .skill-card h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 17px;
+    margin: 0 0 8px;
+  }
+
+  .skill-card p{ font-size: 13.5px; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+
+  .branch-label{
+    text-align:center;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+
+  .branch{
+    display:flex;
+    gap: 16px;
+    justify-content:center;
+    flex-wrap: wrap;
+  }
+
+  .btn{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); border-color: var(--rust); color: var(--rust); }
+  .btn:focus-visible{ outline: 2px solid var(--rust); outline-offset: 3px; }
+  .btn-primary{
+    background: var(--rust); color: var(--paper); border-color: transparent;
+    box-shadow: 0 4px 14px rgba(178,74,38,0.28);
+  }
+  .btn-primary:hover{ color: var(--paper); box-shadow: 0 6px 18px rgba(178,74,38,0.34); }
+
+  @keyframes rise{ to{ opacity: 1; transform: translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce){
+    header, .skill-card{ animation: none; opacity: 1; transform: none; }
+  }
+  @media (max-width: 640px){
+    .cards{ grid-template-columns: 1fr; }
+    h1{ font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb">
+    <a href="hero.html">Home</a>
+    <span class="dot"></span>
+    <a href="about.html">About</a>
+    <span class="dot"></span>
+    <span>Skills</span>
+  </nav>
+
+  <header>
+    <h1>What I work with</h1>
+    <p>The tools and areas I reach for most often.</p>
+  </header>
+
+  <div class="cards">
+    <div class="skill-card">
+      <div class="skill-mark"></div>
+      <h2>Python · SQL · Analytics</h2>
+      <p>Cleaning, querying, and making sense of data at any scale.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-mark"></div>
+      <h2>AI / ML</h2>
+      <p>Building and evaluating models that solve a real problem, not just a benchmark.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-mark"></div>
+      <h2>Cloud · Web</h2>
+      <p>Shipping the work so it's usable — deployment, APIs, and simple front ends.</p>
+    </div>
+  </div>
+
+  <p class="branch-label">See how these show up in practice</p>
+  <div class="branch">
+    <a href="experience.html" class="btn">Experience</a>
+    <a href="projects.html" class="btn btn-primary">Projects</a>
+  </div>
+</div>
+</body>
+</html>
